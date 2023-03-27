@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Titulo</title>
 
     <style>
@@ -16,10 +19,53 @@
   </head>
 
   <body>
-    <div class="cabecalho">
-      <p style="font-size: 25px; font-weight: bold; margin: 0">
+    <div class="cabecalho" style="padding: 30px 0 0">
+      <p style="font-size: 25px; margin: 0">
         Lista de Tarefas
-      </p>
-    </div>
+  </p>
+  </div>
+
+      <div class="cabecalho" style="padding-bottom: 60px">
+          <input type="text" id="novaTarefa" placeholder="Incluir nova tarefa" />
+          <span onclick="adcionar()" class="salvar">Salvar</span>
+</div>
+
+  <ul id="tarefas">
+  <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+  <li class="concluida">Maecenas molestie semper tempus</li>
+  <li>Suspendisse augue nisi</li>
+  </ul>
+
+    <script>
+      function createCloseButton(li) {
+        console.log(li.textContent)
+
+        let span = document.createElement("SPAN");
+        let txt = document.createTextNode("\u00D7");
+
+        span.className = "fechar";
+        span.appendChild(txt);
+        li.appendChild(span);
+
+        span.onclick = () => (span.parentElement.style.display = "none");
+      }
+
+          document.querySelectorAll("li").forEach(createCloseButton);
+
+          document.querySelector("ul").addEventListener("click", (e) => {
+            if (e.target.tagName === "LI") e.target.classList.toggle("concluida");
+      });
+
+      function adicionar() {
+        let value = document.querySelector("#novaTarefa").value;
+        let li = document.createElement("LI");
+        createCloseButton(li);
+        let input_text = document.createTextNode(value);
+
+        li.appendChild(input_text);
+        document.querySelector("ul").appendChild(li);
+        document.querySelector("#novaTarefa").value = "";
+      }
+    </script>
   </body>
 </html>
