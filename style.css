@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ddedea;
+}
+
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  font-size: 18px;
+  transition: 0.2s;
+  border-bottom: 1px solid #ddedea;
+}
+
+ul li.concluida {
+  text-decoration: line-through;
+}
+
+.fechar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #b1e6dd;
+  padding: 12px 16px 12px 16px;
+}
+
+/* Style the header */
+.cabecalho {
+  background-color: #ddedea;
+  padding: 30px 40px;
+  text-align: center;
+  margin: 0;
+  width: 100%;
+}
+
+/* Style the input */
+input {
+  border: none;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+.salvar {
+  padding: 10px;
+  width: 25%;
+  background: #b1e6dd;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+}
+
+.salvar:hover, .fechar:hover  {
+  background-color: #e4f4e3;
+}
